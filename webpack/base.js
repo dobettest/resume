@@ -8,7 +8,8 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
-      "@": resolve("../app/renderer")
+      "@assets": resolve("../assets"),
+      "@src": path.join(__dirname, "../", "app/renderer"),
     }
   },
   module: {
@@ -21,6 +22,19 @@ module.exports = {
             cacheDirectory: true
           }
         }]
+      },
+      {
+        test: /\.s?css$/,
+        use: ["style-loader", "postcss-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(png|jpe?g)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 8192
+          }
+        }]
       }
     ]
   },
@@ -28,8 +42,5 @@ module.exports = {
     filename: "[name].js",
     path: resolve("../dist")// 不添加则clean-webpack-plugin会失效
   },
-  devtool: "inline-source-map",
-  plugins: [
-    // new CleanWebpackPlugin()
-  ]
+  devtool: "inline-source-map"
 };

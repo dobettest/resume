@@ -1,5 +1,13 @@
 {
   "presets": [
-    "@babel/preset-react"
-  ]
+    ["@babel/preset-env", {
+      "useBuiltIns": "usage",
+      "corejs": { "version": "3.20", "proposals": true }
+    }],
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [["@babel/plugin-transform-runtime",{
+    "corejs":3
+  }]]
 }

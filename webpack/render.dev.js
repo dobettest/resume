@@ -9,7 +9,7 @@ function resolve(dir) {
 const mainConfig = {
   mode: "development",
   entry: {
-    index: resolve("../app/renderer/app.jsx")
+    index: resolve("../app/renderer/app.tsx")
   },
   output: {
     filename: "[name].js"

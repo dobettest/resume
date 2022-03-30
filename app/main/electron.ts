@@ -8,8 +8,8 @@ function createWindow() {
     height: 600,
     webPreferences: {
       devTools: true,
-      nodeIntegration: true, // 注入node模块
-      contextIsolation: true
+      nodeIntegration: true,
+      contextIsolation: false
     }
   });
   if (isDev) {

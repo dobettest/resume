@@ -1,4 +1,5 @@
 const { merge } = require("webpack-merge");
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 const BaseConfig = require("./base");
 
@@ -10,6 +11,9 @@ const mainConfig = {
   entry: {
     "electron": resolve("../app/main/electron.ts")
   },
+  optimization: [
+    new TerserPlugin()
+  ]
   target: "electron-main"
 };
 
