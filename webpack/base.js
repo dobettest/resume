@@ -10,6 +10,7 @@ module.exports = {
     alias: {
       "@assets": resolve("../assets"),
       "@src": path.join(__dirname, "../", "app/renderer"),
+      "@common":path.join(__dirname,"../","app/render/common")
     }
   },
   module: {
